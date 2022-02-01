@@ -3,6 +3,8 @@
 import speedtest
 import logging
 
+logging.basicConfig(level=logging.INFO)
+
 class NetworkTest:
 
     def __init__(self):
@@ -11,13 +13,14 @@ class NetworkTest:
 
     def check_speed(self):
         '''Check speed of both checks'''
+        logging.info('Starting check')
         try:
             down_speed = self.speed.download() / 1048576
             up_speed = self.speed.upload() / 1048576
             down = round(down_speed)
             up = round(up_speed)
-            logging.info(down)
-            logging.info(up)
+            logging.info('Download: {}'.format(down))
+            logging.info('Upload: {}'.format(up))
         except speedtest.SpeedtestException as error:
             logging.error('Error occurred: {}'.format(error))
        
