@@ -3,7 +3,7 @@
 import speedtest
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 class NetworkTest:
 
@@ -19,8 +19,8 @@ class NetworkTest:
             up_speed = self.speed.upload() / 1048576
             down = round(down_speed)
             up = round(up_speed)
-            logging.info('Download: {}'.format(down))
-            logging.info('Upload: {}'.format(up))
+            logging.info('Download: {}Mbps'.format(down))
+            logging.info('Upload: {}Mbps'.format(up))
         except speedtest.SpeedtestException as error:
             logging.error('Error occurred: {}'.format(error))
        
