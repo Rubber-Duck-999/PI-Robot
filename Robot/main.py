@@ -5,7 +5,7 @@ import logging
 
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
-class NetworkTest:
+class Robot:
 
     def __init__(self):
         '''Constructor for class'''

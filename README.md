@@ -1,4 +1,22 @@
 # Python Examples
 
-* Speedtest
-* GUI
+* Robot - 
+* GUI - Window to Contreol the robot
+
+# Install
+
+Require:
+* Venv (Simon Only)
+    * python3 -m venv build_virtual_env
+    * Makes a virtual folder called build_virtual_env
+* sudo apt-get install python3-tk
+* cd GUI
+* pip install -r requirements.txt
+
+# Run
+
+* cd GUI 
+* python3 main.py
+
+* cd Robot
+* python3 main.py
