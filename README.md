@@ -1,3 +1,4 @@
-# PythonExample
+# Python Examples
 
-Good example on running speedtests
+* Speedtest
+* GUI
