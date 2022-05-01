@@ -22,7 +22,7 @@ layout = [
 	[sg.ReadButton('', size=(x, y), font=font), sg.ReadButton('Front', size=(x, y), font=font), sg.ReadButton('', size=(x, y), font=font)],
 	[sg.ReadButton('Left', size=(x, y), font=font), sg.ReadButton('Stop', size=(x, y), font=font), sg.ReadButton('Right', size=(x, y), font=font)],
 	[sg.ReadButton('', size=(x, y), font=font), sg.ReadButton('Back', size=(x, y), font=font), sg.ReadButton('', size=(x, y), font=font)],
-	[sg.Slider(range=(1, 100), orientation='h', size=(34, 20), default_value=85)],
+	[sg.Slider(range=(1, 40), orientation='h', size=(34, 20), default_value=10)],
 	[sg.Text(size=(40, 1), font=font, key='-ERROR-')],
 ]
 window = sg.Window('Robot Control Panel', layout, no_titlebar=False, size=(800, 480))
