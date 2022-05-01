@@ -1,7 +1,7 @@
-# Python Examples
+# PI Robot
 
-* Robot - 
-* GUI - Window to Contreol the robot
+* Robot - Gets commands, runs them
+* GUI - Window to Control the robot
 
 # Install
 
