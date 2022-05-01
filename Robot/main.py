@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-
-import speedtest
 import logging
+from motor import Motor
+from led import Led
+from buzzer import Buzzer
+import time
 
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
@@ -9,21 +11,27 @@ class Robot:
 
     def __init__(self):
         '''Constructor for class'''
-        self.speed = speedtest.Speedtest()
+        self.motor = Motor()
 
-    def check_speed(self):
+    def check_motors(self):
         '''Check speed of both checks'''
-        logging.info('Starting check')
+        logging.info('Starting motor run')
         try:
-            down_speed = self.speed.download() / 1048576
-            up_speed = self.speed.upload() / 1048576
-            down = round(down_speed)
-            up = round(up_speed)
-            logging.info('Download: {}Mbps'.format(down))
-            logging.info('Upload: {}Mbps'.format(up))
-        except speedtest.SpeedtestException as error:
+            self.motor.forwards(20, 3)
+            self.motor.left(20, 3)
+            self.motor.right(20, 3)
+            self.motor.backwards(20, 3)
+            self.motor.stop()
+        except KeyboardInterrupt as error:
             logging.error('Error occurred: {}'.format(error))
        
 if __name__ == "__main__":
-    network_test = NetworkTest()
-    network_test.check_speed()
+    robot = Robot()
+    robot.check_motors()
+    led = Led()
+    led.rainbow_cycle()
+    led.wipe()
+    buzzer = Buzzer()
+    buzzer.run(True)
+    time.sleep(3)
+    buzzer.run(False)

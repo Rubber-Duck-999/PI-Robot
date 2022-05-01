@@ -19,23 +19,23 @@ x = 20
 y = 5
 font = ("Helvetica", 13)
 layout = [
-	[sg.Text('Enter your Pin: ', size=(40, 1), font=font), sg.Text(size=(40,1), font=font, key='-OUTPUT-')],
-	[sg.ReadButton('1', size=(x, y), font=font), sg.ReadButton('2', size=(x, y), font=font), sg.ReadButton('3', size=(x, y), font=font)],
-	[sg.ReadButton('4', size=(x, y), font=font), sg.ReadButton('5', size=(x, y), font=font), sg.ReadButton('6', size=(x, y), font=font)],
-	[sg.ReadButton('Clear', size=(x, y), font=font), sg.ReadButton('9', size=(x, y), font=font), sg.ReadButton('Enter', size=(x, y), font=font)],
+	[sg.ReadButton('', size=(x, y), font=font), sg.ReadButton('Front', size=(x, y), font=font), sg.ReadButton('', size=(x, y), font=font)],
+	[sg.ReadButton('Left', size=(x, y), font=font), sg.ReadButton('Stop', size=(x, y), font=font), sg.ReadButton('Right', size=(x, y), font=font)],
+	[sg.ReadButton('', size=(x, y), font=font), sg.ReadButton('Back', size=(x, y), font=font), sg.ReadButton('', size=(x, y), font=font)],
+	[sg.Slider(range=(0,100))]
 	[sg.Text(size=(40, 1), font=font, key='-ERROR-')],
 ]
 window = sg.Window('Example', layout, no_titlebar=False, size=(800, 480))
 
+run = True
 
 # Event Loop to process "events" and get the "values" of the inputs
-while True:
+while run:
 	event, values = window.read()
-	if event == sg.WIN_CLOSED or event == 'Cancel': # if user closes window or clicks cancel
-		window.closed()
+	if event == sg.WIN_CLOSED or event == 'Cancel':
+		# if user closes window or clicks cancel
+		run = False
 	elif event == 'Clear':
-		entry.clear()
-		window['-OUTPUT-'].update(entry.get_value())
 		window['-ERROR-'].update('')
 		window.refresh()
 	elif event == 'Enter':
@@ -44,10 +44,6 @@ while True:
 	elif event  == '-DONE-':
 		window['-ERROR-'].update('System Failure')
 	else:
-		entry.set_value(int(event))
-		window['-OUTPUT-'].update(str(entry.get_value()))
-		window['-ERROR-'].update('')
 		window.refresh()
-	print('You entered', event)
 
 window.close()
