@@ -3,6 +3,8 @@
 * Robot - Gets commands, runs them
 * GUI - Window to Control the robot
 
+![GUI](./gui.png)
+
 # Install
 
 Require:
