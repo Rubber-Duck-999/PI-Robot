@@ -1,0 +1,2 @@
+rpi-ws281x==4.3.4
+smbus==1.1.post2
