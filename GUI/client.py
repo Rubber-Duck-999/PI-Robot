@@ -13,11 +13,11 @@ class Client():
         except socket.error as error:
             print("socket creation failed with error {}".format(error))
     
-    def connect(self):
+    def connect(self, address):
         while self.connect_mode:
             # connecting to the server
             try:
-                self.socket.connect(('127.0.0.1', 10000))
+                self.socket.connect((address, 10000))
                 print("Connected successfully")
                 self.connect_mode = False
             except socket.error as error:
@@ -42,6 +42,6 @@ class Client():
 
 if __name__ == "__main__":
     client = Client(True)
-    client.connect()
+    client.connect('127.0.0.1')
     while True:
         client.send()
